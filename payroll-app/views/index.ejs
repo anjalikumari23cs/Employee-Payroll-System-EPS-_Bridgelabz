@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Payroll Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Employee Payroll System</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Basic Salary</th>
+        <th>Tax (12%)</th>
+        <th>Net Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% employees.forEach(emp => { 
+          const tax = emp.basicSalary * 0.12;
+          const net = emp.basicSalary - tax;
+      %>
+        <tr>
+          <td><%= emp.id %></td>
+          <td><%= emp.name %></td>
+          <td><%= emp.department %></td>
+          <td><%= emp.basicSalary %></td>
+          <td><%= tax.toFixed(2) %></td>
+          <td><%= net.toFixed(2) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
